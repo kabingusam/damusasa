@@ -11,4 +11,4 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sam:ksam8657@localhost/
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
-from damusasa import routes
+
