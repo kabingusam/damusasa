@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/index.css">
+    <title>Dashboard</title>
+
+    <script>
+        function showRegistrationForm() {
+            var registrationForm = document.getElementById("registrationForm");
+            registrationForm.style.display = "block";
+        }
+
+        function showTriageForm() {
+            var triageForm = document.getElementById("triageForm");
+            triageForm.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+     <button class="login">
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </button>
+    <h1>Welcome to the Dashboard</h1>
+
+    <button onclick="showRegistrationForm()">New Patient Registration</button>
+
+    <section id="registrationForm" style="display: none;">
+        <h2>New Patient Registration</h2>
+        <form action="{{ url_for('register_patient') }}" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="id_number">ID Number:</label>
+            <input type="text" id="id_number" name="id_number" required>
+
+            <input type="submit" value="Register">
+        </form>
+    </section>
+
+    <button onclick="showTriageForm()">Triage</button>
+
+    <section id="triageForm" style="display: none;">
+        <h2>Triage</h2>
+        <form action="{{ url_for('record_vitals') }}" method="POST">
+            <label for="temperature">Temperature:</label>
+            <input type="number" id="temperature" name="temperature" required>
+
+            <label for="blood_pressure">Blood Pressure:</label>
+            <input type="text" id="blood_pressure" name="blood_pressure" required>
+
+            <input type="submit" value="Record Vitals">
+        </form>
+    </section>
+</body>
+</html>

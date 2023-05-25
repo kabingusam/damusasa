@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>DamuSasa</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="static/css/index.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='../static/css/index.css')}}">
+        <body>
+            <h1>Welcome To DamuSasa</h1>
+            <button class="login">
+                <a href="{{ url_for('login') }}">Login</a>
+            </button>
+        </body>
+    </html>
